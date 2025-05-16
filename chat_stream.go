@@ -6,12 +6,12 @@ import (
 )
 
 type ChatCompletionStreamChoiceDelta struct {
-	Content          string        `json:"content,omitempty"`
+	Content          string        `json:"content"`
 	Role             string        `json:"role,omitempty"`
 	FunctionCall     *FunctionCall `json:"function_call,omitempty"`
 	ToolCalls        []ToolCall    `json:"tool_calls,omitempty"`
 	Refusal          string        `json:"refusal,omitempty"`
-	ReasoningContent string        `json:"reasoning_content,omitempty"`
+	ReasoningContent string        `json:"reasoning_content"`
 }
 
 type ChatCompletionStreamChoiceLogprobs struct {
@@ -37,7 +37,7 @@ type ChatCompletionStreamChoice struct {
 	Delta                ChatCompletionStreamChoiceDelta     `json:"delta"`
 	Logprobs             *ChatCompletionStreamChoiceLogprobs `json:"logprobs,omitempty"`
 	FinishReason         FinishReason                        `json:"finish_reason"`
-	ContentFilterResults ContentFilterResults                `json:"content_filter_results,omitempty"`
+	ContentFilterResults *ContentFilterResults               `json:"content_filter_results,omitempty"`
 }
 
 type PromptFilterResult struct {
